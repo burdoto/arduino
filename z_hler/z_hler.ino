@@ -1,5 +1,5 @@
 #include <TimerOne.h>
-#include <Wire.h>
+//#include <Wire.h>
 #include <MultiFuncShield.h>
 
 int count;
@@ -42,6 +42,16 @@ void loop(){
 
   Serial.println(count);
   MFS.write(count);
+  setLEDs(count);
   
   //WriteNumber(count);
+}
+
+bool setLEDs(int status){
+  //Serial.print("setting status: 0b");Serial.println(status, BIN);
+  digitalWrite(13, (status & 0b1000) != 0 ? OFF : ON);
+  digitalWrite(12, (status & 0b0100) != 0 ? OFF : ON);
+  digitalWrite(11, (status & 0b0010) != 0 ? OFF : ON);
+  digitalWrite(10, (status & 0b0001) != 0 ? OFF : ON);
+  return status < 15;
 }
