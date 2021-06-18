@@ -20,9 +20,4 @@
       <Filter>Misc Files</Filter>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="__vm\.r2b.vsarduino.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
 </Project>
